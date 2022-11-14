@@ -1,5 +1,6 @@
-import { Col, Card, Divider, Button, Popover, Row } from 'antd';
+import { Col, Card, Divider, Avatar, Image, Button, Popover, Row } from 'antd';
 import NCard from '@/components/navicard/navicard';
+import styles from "./Navigation.less";
 
 const list: any[] = [
   {
@@ -54,8 +55,12 @@ const Navigation: React.FC = () => (
         <MCard title={item.title} url={item.url} avatar={item.avatar} index={index}></MCard>
       )
       return (
-        <Col span={4}>
-          <Popover placement="bottom" content={card}><Button type="primary">{item.title}</Button></Popover>
+        <Col span={2}>
+          <Popover placement="bottom" content={card}>
+            <Avatar className={styles.avatar} size={100} src={<Image preview={false} src={require('/src/assets/platforms/' + item.avatar + '.png')} />} />
+            {/* <Button type="primary">{item.title}</Button> */}
+        
+          </Popover>
         </Col>
       );
       <Divider

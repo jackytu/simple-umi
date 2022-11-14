@@ -10,11 +10,11 @@ const NCard: React.FC<{
 }> = (props) => (
   <div>
     <Card
-    hoverable
-    style={{ width: 240 }}
+    // hoverable
+    style={{ width: 600 }}
     cover={<img alt="example" src={require('/src/assets/demos/' + props.label + '-demo.png')} />}
   >
-    <Meta title={props.title} description={props.title} />
+    <Meta title={props.title} description={props.title}></Meta>
   </Card>
   </div>
 );
