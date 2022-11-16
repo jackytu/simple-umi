@@ -55,40 +55,90 @@ const MCard: React.FC<{
   </div>
 );
 
+const cardList = new Array(list.length);
+list.map((item, index) => {
+  const card = (
+    <MCard
+      key={index}
+      title={item.title}
+      url={item.url}
+      description={item.description}
+      avatar={item.avatar}
+      index={index}
+    ></MCard>
+  );
+  cardList.push(card);
+});
+console.log(cardList.pop());
+
 const Navigation: React.FC = () => (
-  <Row justify="center">
-    {list.map((item, index) => {
-      const card = (
-        <MCard
-          key={index}
-          title={item.title}
-          url={item.url}
-          description={item.description}
-          avatar={item.avatar}
-          index={index}
-        ></MCard>
-      );
-      return (
-        <Col key={index} span={3}>
-          <Popover key={index} placement="bottom" content={card}>
-            <div className={styles.container}>
-              <div className={styles.btn}>
-                <a className={styles.a} href={item.url}>
-                  {item.title}
-                </a>
-              </div>
-            </div>
-          </Popover>
-        </Col>
-      );
-      <Divider
-        style={{
-          height: '1.5em',
-        }}
-        type="vertical"
-      />;
-    })}
-  </Row>
+  <div className={styles.container}>
+    <Popover key={0} placement="bottom" content={cardList.pop()}>
+      <div className={styles.btn}>
+        <a className={styles.a} href={list[0].url}>
+          {list[0].title}
+        </a>
+      </div>
+    </Popover>
+    <Popover key={1} placement="bottom" content={cardList.pop()}>
+      <div className={styles.btn}>
+        <a className={styles.a} href={list[1].url}>
+          {list[1].title}
+        </a>
+      </div>
+    </Popover>
+    <Popover key={2} placement="bottom" content={cardList.pop()}>
+      <div className={styles.btn}>
+        <a className={styles.a} href={list[2].url}>
+          {list[2].title}
+        </a>
+      </div>
+    </Popover>
+    <Popover key={3} placement="bottom" content={cardList.pop()}>
+      <div className={styles.btn}>
+        <a className={styles.a} href={list[3].url}>
+          {list[3].title}
+        </a>
+      </div>
+    </Popover>
+  </div>
+
+  // <Row justify="center">
+  //   {list.map((item, index) => {
+  //     const card = (
+  //       <MCard
+  //         key={index}
+  //         title={item.title}
+  //         url={item.url}
+  //         description={item.description}
+  //         avatar={item.avatar}
+  //         index={index}
+  //       ></MCard>
+  //     );
+  //     return (
+  //       <Col key={index} span={3}>
+
+  //         </Popover>
+  //         <Popover key={index} placement="bottom" content={card}>
+  //             <div className={styles.btn}>
+  //               <a className={styles.a} href={item.url}>
+  //                 {item.title}
+  //               </a>
+  //             </div>
+  //         </Popover>
+  //         <Popover key={index} placement="bottom" content={card}>
+  //             <div className={styles.btn}>
+  //               <a className={styles.a} href={item.url}>
+  //                 {item.title}
+  //               </a>
+  //             </div>
+  //         </Popover>
+  //         </div>
+
+  //       </Col>
+  //     );
+  //   })}
+  // </Row>
 );
 
 export default Navigation;
