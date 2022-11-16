@@ -22,6 +22,7 @@
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
     "@react-three/drei": "^9.40.0",
+    "lamina": "^1.1.23",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-load-script": "^0.0.6",

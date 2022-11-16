@@ -6,28 +6,28 @@ const list: any[] = [
   {
     id: 1,
     title: '日志服务',
-    description: '日志服务',
+    description: '日志服务，主要用于服务日志的收集与分析',
     avatar: 'log',
     url: 'https://baidu.com',
   },
   {
     id: 2,
     title: '指标服务',
-    description: '指标服务',
+    description: '指标服务，主要用于服务指标的采集',
     avatar: 'metric',
     url: 'https://163.com',
   },
   {
     id: 3,
     title: '持续集成',
-    description: '持续集成',
+    description: '持续集成，主要用于代码的持续集成',
     avatar: 'jenkins',
     url: 'https://sina.com',
   },
   {
     id: 4,
     title: '代码仓库',
-    description: '代码仓库',
+    description: '代码仓库，主要用于代码的版本管理',
     avatar: 'gitlab',
     url: 'https://grafana.com',
   },
@@ -37,6 +37,7 @@ const MCard: React.FC<{
   title: string;
   index: number;
   url: string;
+  description: string;
   avatar: string;
 }> = (props) => (
   <div>
@@ -44,6 +45,7 @@ const MCard: React.FC<{
       <NCard
         key={props.index}
         title={props.title}
+        description={props.description}
         url={props.url}
         label={props.avatar}
       >
@@ -61,6 +63,7 @@ const Navigation: React.FC = () => (
           key={index}
           title={item.title}
           url={item.url}
+          description={item.description}
           avatar={item.avatar}
           index={index}
         ></MCard>
@@ -73,8 +76,6 @@ const Navigation: React.FC = () => (
                 <a className={styles.a}>{item.title}</a>
               </div>
             </div>
-            {/* <Avatar className={styles.avatar} size={100} src={<Image preview={false} src={require('/src/assets/platforms/' + item.avatar + '.png')} />} /> */}
-            {/* <Button type="primary">{item.title}</Button> */}
           </Popover>
         </Col>
       );

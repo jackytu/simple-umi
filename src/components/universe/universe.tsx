@@ -77,6 +77,8 @@ const MyMesh = () => {
   useFrame((state) => {
     const elapsedTime = state.clock.elapsedTime;
     bgstart.current.rotation.y = -elapsedTime * 0.05;
+    // bgstart.current.geometry.attributes.position.needsUpdate = true;
+    console.log(bgstart.current.geometry);
   });
 
   const points1 = React.useRef<any>();
@@ -84,6 +86,7 @@ const MyMesh = () => {
   useFrame((state) => {
     const elapsedTime = state.clock.elapsedTime;
     points1.current.rotation.y = elapsedTime * 0.3;
+    // points1.current.geometry.attributes.position.needsUpdate = true;
   });
 
   return (

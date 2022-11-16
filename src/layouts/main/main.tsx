@@ -4,8 +4,7 @@ import React from 'react';
 import styles from './main.less';
 import Navigation from '@/components/navigation/Navigation';
 import Universe from '@/components/universe/universe';
-import Scene from '@/components/univ2/univ2';
-import App from '@/components/fiber-demo/demo1';
+import Scene from '@/components/3d/planet';
 
 const { Header, Content, Footer } = Layout;
 
@@ -45,11 +44,15 @@ const Main: React.FC = () => (
     <Header className={styles.siteLayoutHeader}></Header>
     <Content>
       <div className={styles.siteLayoutContent}>
-        <div>{Universe()}</div>
+        <div className={styles.siteLayoutLabel}>Click </div>
+
+        <Navigation />
+        {/* <div>{Universe()}</div> */}
+        <Scene />
       </div>
     </Content>
     <Footer className={styles.siteLayoutFooter}>
-      Copyright @2022 Pujiang Lab
+      Copyright @2022 Pujiang National Lab | Contact tuzhongying@pjlab.org.cn
     </Footer>
   </Layout>
 );
