@@ -1,6 +1,7 @@
 canvas {
     /* padding-top: 10vh; */
+    z-index: 2;
     margin-left: 40vw;
-    width: 60vw;
-    height: 60vh;
+    width: 70vw;
+    height: 70vh;
 }
