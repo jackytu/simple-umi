@@ -69,7 +69,6 @@ list.map((item, index) => {
   );
   cardList.push(card);
 });
-console.log(cardList.pop());
 
 const Navigation: React.FC = () => (
   <div className={styles.container}>
