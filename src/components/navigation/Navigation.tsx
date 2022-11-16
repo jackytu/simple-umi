@@ -8,28 +8,28 @@ const list: any[] = [
     title: '日志服务',
     description: '日志服务，主要用于服务日志的收集与分析',
     avatar: 'log',
-    url: 'https://baidu.com',
+    url: 'http://dashboard.pjlab.org.cn',
   },
   {
     id: 2,
     title: '指标服务',
     description: '指标服务，主要用于服务指标的采集',
     avatar: 'metric',
-    url: 'https://163.com',
+    url: 'http://dashboard.pjlab.org.cn',
   },
   {
     id: 3,
     title: '持续集成',
     description: '持续集成，主要用于代码的持续集成',
     avatar: 'jenkins',
-    url: 'https://sina.com',
+    url: 'http://ci.pjlab.org.cn',
   },
   {
     id: 4,
     title: '代码仓库',
     description: '代码仓库，主要用于代码的版本管理',
     avatar: 'gitlab',
-    url: 'https://grafana.com',
+    url: 'http://gitlab.pjlab.org.cn',
   },
 ];
 
@@ -73,7 +73,9 @@ const Navigation: React.FC = () => (
           <Popover key={index} placement="bottom" content={card}>
             <div className={styles.container}>
               <div className={styles.btn}>
-                <a className={styles.a}>{item.title}</a>
+                <a className={styles.a} href={item.url}>
+                  {item.title}
+                </a>
               </div>
             </div>
           </Popover>
