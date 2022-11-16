@@ -1,6 +1,6 @@
 import { Col, Card, Divider, Avatar, Image, Button, Popover, Row } from 'antd';
 import NCard from '@/components/navicard/navicard';
-import styles from "./Navigation.less";
+import styles from './Navigation.less';
 
 const list: any[] = [
   {
@@ -40,11 +40,16 @@ const MCard: React.FC<{
   avatar: string;
 }> = (props) => (
   <div>
-  <div>
-    <NCard key={props.index} title={props.title} url={props.url} label={props.avatar}>
-      {props.avatar}
-    </NCard>
-  </div>
+    <div>
+      <NCard
+        key={props.index}
+        title={props.title}
+        url={props.url}
+        label={props.avatar}
+      >
+        {props.avatar}
+      </NCard>
+    </div>
   </div>
 );
 
@@ -52,14 +57,24 @@ const Navigation: React.FC = () => (
   <Row justify="center">
     {list.map((item, index) => {
       const card = (
-        <MCard title={item.title} url={item.url} avatar={item.avatar} index={index}></MCard>
-      )
+        <MCard
+          key={index}
+          title={item.title}
+          url={item.url}
+          avatar={item.avatar}
+          index={index}
+        ></MCard>
+      );
       return (
-        <Col span={2}>
-          <Popover placement="bottom" content={card}>
-            <Avatar className={styles.avatar} size={100} src={<Image preview={false} src={require('/src/assets/platforms/' + item.avatar + '.png')} />} />
+        <Col key={index} span={3}>
+          <Popover key={index} placement="bottom" content={card}>
+            <div className={styles.container}>
+              <div className={styles.btn}>
+                <a className={styles.a}>{item.title}</a>
+              </div>
+            </div>
+            {/* <Avatar className={styles.avatar} size={100} src={<Image preview={false} src={require('/src/assets/platforms/' + item.avatar + '.png')} />} /> */}
             {/* <Button type="primary">{item.title}</Button> */}
-        
           </Popover>
         </Col>
       );
@@ -68,9 +83,9 @@ const Navigation: React.FC = () => (
           height: '1.5em',
         }}
         type="vertical"
-      />
+      />;
     })}
   </Row>
-)
+);
 
 export default Navigation;
